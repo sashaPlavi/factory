@@ -58,12 +58,35 @@ const getters = {
     return state.fields;
   },
 };
-const acctions = {};
-const muttations = {};
+const actions = {
+  randomize({ commit }) {
+    setInterval(() => {
+      let random = Math.floor(Math.random() * 2) + 1;
+      let sign = Math.random() > 0.5 ? "-" : "+";
+      commit("setValue", {
+        random,
+        sign,
+      });
+    }, 1000);
+  },
+};
+const mutations = {
+  setValue: (state, payload) => {
+    const random = payload.random;
+    for (let i = 0; i < state.fields.length; i++) {
+      payload.sign === "-"
+        ? (state.fields[i].value = state.fields[i].value - random)
+        : (state.fields[i].value = state.fields[i].value + random);
+    }
+    //state.fields.value = value;
+    console.log(payload.random);
+    console.log(payload.sign);
+  },
+};
 
 export default {
   state,
   getters,
-  acctions,
-  muttations,
+  actions,
+  mutations,
 };

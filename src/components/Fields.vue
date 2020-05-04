@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>fields</h1>
+    <div></div>
     <div class="fields">
       <div v-for="field in allFields" :key="field.id" class="field">
         <h1>{{field.name}}</h1>
@@ -11,12 +12,16 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 //console.log(mapGetter);
 
 export default {
   name: "Fields",
-  computed: mapGetters(["allFields"])
+  methods: { ...mapActions(["randomize"]) },
+  computed: mapGetters(["allFields"]),
+  created: function() {
+    this.randomize();
+  }
 };
 </script>
 
