@@ -6,6 +6,7 @@
       <div v-for="field in allFields" :key="field.id" class="field">
         <h1>{{field.name}}</h1>
         <p>{{field.value}}</p>
+        <strong>{{field.sign}}</strong>
       </div>
     </div>
   </div>
