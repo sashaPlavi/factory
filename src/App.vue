@@ -1,19 +1,21 @@
 <template>
   <div id="app">
+    <Navbar></Navbar>
     <div class="container">
-      <Fields />
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import Fields from "./components/Fields.vue";
+//import Fields from "./components/Fields.vue";
+import Navbar from "./components/inc/Navbar";
 
 export default {
   name: "App",
   components: {
-    Fields
-  }
+    Navbar,
+  },
 };
 </script>
 
