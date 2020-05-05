@@ -84,21 +84,32 @@ const actions = {
       commit("setValue");
     }, 1000);
   },
+  togleRandomize({ commit }, id) {
+    commit("setGenerating", id);
+  },
 };
 const mutations = {
   setValue: (state) => {
     for (let i = 0; i < state.fields.length; i++) {
-      let sign = Math.random() > 0.5 ? "-" : "+";
-      let random = Math.floor(Math.random() * 2) + 1;
-      sign === "-"
-        ? ((state.fields[i].value = state.fields[i].value - random),
-          (state.fields[i].sign = "-"))
-        : ((state.fields[i].value = state.fields[i].value + random),
-          (state.fields[i].sign = "+"));
+      if (state.fields[i].generating) {
+        let sign = Math.random() > 0.5 ? "-" : "+";
+        let random = Math.floor(Math.random() * 2) + 1;
+        sign === "-"
+          ? ((state.fields[i].value = state.fields[i].value - random),
+            (state.fields[i].sign = "-"))
+          : ((state.fields[i].value = state.fields[i].value + random),
+            (state.fields[i].sign = "+"));
+      }
     }
-    //state.fields.value = value;
-    //console.log(random);
-    //console.log(sign);
+  },
+  setGenerating: (state, id) => {
+    for (let i = 0; i < state.fields.length; i++) {
+      if (state.fields[i].id === id) {
+        state.fields[i].generating === true
+          ? (state.fields[i].generating = false)
+          : (state.fields[i].generating = true);
+      }
+    }
   },
 };
 

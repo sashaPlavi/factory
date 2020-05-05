@@ -7,6 +7,8 @@
         <h1>{{field.name}}</h1>
         <p>{{field.value}}</p>
         <strong>{{field.sign}}</strong>
+        <br />
+        <button @click="togleRandomize(field.id)">disable/enable</button>
       </div>
     </div>
   </div>
@@ -18,7 +20,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Fields",
-  methods: { ...mapActions(["randomize"]) },
+  methods: { ...mapActions(["randomize", "togleRandomize"]) },
   computed: mapGetters(["allFields"]),
   created: function() {
     this.randomize();
