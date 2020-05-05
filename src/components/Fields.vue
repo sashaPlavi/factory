@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>fields</h1>
-    <div></div>
+
     <div class="fields">
       <div v-for="field in allFields" :key="field.id" class="field">
         <h1>{{ field.name }}</h1>
@@ -32,7 +32,7 @@ export default {
   computed: mapGetters(["allFields"]),
   created: function() {
     this.randomize();
-  },
+  }
 };
 </script>
 
