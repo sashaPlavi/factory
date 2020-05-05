@@ -4,10 +4,18 @@
     <div></div>
     <div class="fields">
       <div v-for="field in allFields" :key="field.id" class="field">
-        <h1>{{field.name}}</h1>
-        <p>{{field.value}}</p>
-        <strong>{{field.sign}}</strong>
-        <br />
+        <h1>{{ field.name }}</h1>
+        <div class="display">
+          <p>{{ field.value }}</p>
+          <div v-if="field.sign === '+'">
+            <p>&uarr;</p>
+          </div>
+          <div style="color:red;" v-else>
+            <p>&darr;</p>
+          </div>
+
+          <br />
+        </div>
         <button @click="togleRandomize(field.id)">disable/enable</button>
       </div>
     </div>
@@ -24,7 +32,7 @@ export default {
   computed: mapGetters(["allFields"]),
   created: function() {
     this.randomize();
-  }
+  },
 };
 </script>
 
@@ -45,5 +53,10 @@ export default {
 
 h1 {
   text-align: center;
+}
+.display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.5rem;
 }
 </style>

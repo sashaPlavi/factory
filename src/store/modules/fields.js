@@ -82,7 +82,7 @@ const actions = {
   randomize({ commit }) {
     setInterval(() => {
       commit("setValue");
-    }, 1000);
+    }, 2000);
   },
   togleRandomize({ commit }, id) {
     commit("setGenerating", id);

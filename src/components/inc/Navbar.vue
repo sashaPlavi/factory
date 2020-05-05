@@ -15,7 +15,7 @@ export default {
 .navbar {
   display: flex;
   font-style: normal;
-  text-decoration: none;
+
   padding: 0.5rem;
   background: #5b6b7c;
   align-items: flex-end;
