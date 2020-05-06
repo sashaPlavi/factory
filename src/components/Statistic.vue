@@ -4,7 +4,7 @@
     <div class="fields">
       <div v-for="field in allFields" :key="field.id" class="field">
         <h1>{{ field.name }}</h1>
-        <p>{{field.valueHistory}}</p>
+        <p>{{ field.valueHistory }}</p>
         <div id="app">
           <canvas id="planet-chart"></canvas>
         </div>
@@ -15,10 +15,16 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+//import Chart from "chart.js";
+
 export default {
   name: "Statistic",
-  methods: { ...mapActions(["randomize", "togleRandomize"]) },
-  computed: mapGetters(["allFields"])
+  methods: { ...mapActions(["stopRandomize"]) },
+  computed: mapGetters(["allFields"]),
+
+  created: function() {
+    this.stopRandomize();
+  }
 };
 </script>
 

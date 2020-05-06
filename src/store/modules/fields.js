@@ -97,6 +97,12 @@ const actions = {
   togleRandomize({ commit }, id) {
     commit("setGenerating", id);
   },
+  stopRandomize({ commit }) {
+    commit("stopGenerating");
+  },
+  startRandomize({ commit }) {
+    commit("startGenerating");
+  },
 };
 const mutations = {
   setValue: (state) => {
@@ -121,6 +127,16 @@ const mutations = {
           ? (state.fields[i].generating = false)
           : (state.fields[i].generating = true);
       }
+    }
+  },
+  stopGenerating: (state) => {
+    for (let i = 0; i < state.fields.length; i++) {
+      state.fields[i].generating = false;
+    }
+  },
+  startGenerating: (state) => {
+    for (let i = 0; i < state.fields.length; i++) {
+      state.fields[i].generating = true;
     }
   },
 };

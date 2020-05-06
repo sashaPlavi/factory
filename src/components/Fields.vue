@@ -28,9 +28,10 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Fields",
-  methods: { ...mapActions(["randomize", "togleRandomize"]) },
+  methods: { ...mapActions(["randomize", "togleRandomize", "startRandomize"]) },
   computed: mapGetters(["allFields"]),
   created: function() {
+    this.startRandomize();
     this.randomize();
   }
 };
