@@ -6,7 +6,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -15,7 +15,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -24,7 +24,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -33,7 +33,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -42,7 +42,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -51,7 +51,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -60,7 +60,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -69,7 +69,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -78,7 +78,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
     {
@@ -87,7 +87,7 @@ const state = {
       value: 3,
       valueHistory: [],
       sign: "",
-      generating: true,
+      generating: false,
       sesion: [],
     },
   ],
@@ -99,10 +99,14 @@ const getters = {
   },
 };
 const actions = {
-  randomize({ commit }) {
-    setInterval(() => {
+  randomize({ commit, state }) {
+    this.timer = setInterval(() => {
       commit("setValue");
     }, 2000);
+
+    if (state.fields[0].sign) {
+      clearInterval(this.timer);
+    }
   },
   togleRandomize({ commit }, id) {
     commit("setGenerating", id);
