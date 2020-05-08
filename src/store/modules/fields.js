@@ -146,7 +146,9 @@ const mutations = {
   },
   startGenerating: (state) => {
     for (let i = 0; i < state.fields.length; i++) {
-      state.fields[i].generating = true;
+      if (state.fields[i].generating === false) {
+        state.fields[i].generating = true;
+      }
     }
   },
 };
