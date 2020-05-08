@@ -3,11 +3,12 @@
     <h1>Statistic page</h1>
     <div class="fields">
       <div v-for="field in allFields" :key="field.id" class="field">
-        <h1>{{ field.name }}</h1>
-        <p>{{ field.valueHistory }}</p>
-        <div id="app">
-          <canvas id="planet-chart"></canvas>
-        </div>
+        <Chart
+          :name="field.name"
+          :data="field.valueHistory"
+          :sesion="field.sesion"
+          :id="field.id"
+        />
       </div>
     </div>
   </div>
@@ -15,25 +16,23 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-//import Chart from "chart.js";
+import Chart from "./Chart";
 
 export default {
-  name: "Statistic",
-  methods: { ...mapActions(["stopRandomize"]) },
+  name: "testStatistic",
+  components: { Chart },
+  methods: {
+    ...mapActions(["stopRandomize"]),
+  },
   computed: mapGetters(["allFields"]),
 
   created: function() {
     this.stopRandomize();
-  }
+  },
 };
 </script>
 
 <style scped>
-.fields {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-}
 .field {
   border: 1px solid #ccc;
   background: chartreuse;
@@ -41,6 +40,7 @@ export default {
   text-align: center;
   position: relative;
   cursor: pointer;
+  margin: 1rem;
 }
 body {
   text-align: center;

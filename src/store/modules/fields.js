@@ -7,6 +7,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 6,
@@ -47,6 +52,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 7,
@@ -55,6 +61,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 8,
@@ -63,6 +70,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 9,
@@ -71,6 +79,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
     {
       id: 10,
@@ -79,6 +88,7 @@ const state = {
       valueHistory: [],
       sign: "",
       generating: true,
+      sesion: [],
     },
   ],
 };
@@ -115,7 +125,7 @@ const mutations = {
             (state.fields[i].sign = "-"))
           : ((state.fields[i].value = state.fields[i].value + random),
             (state.fields[i].sign = "+"));
-
+        state.fields[i].sesion.push("s");
         state.fields[i].valueHistory.push(state.fields[i].value);
       }
     }
