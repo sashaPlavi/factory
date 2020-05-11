@@ -8,14 +8,12 @@
 </template>
 
 <script>
-//import Fields from "./components/Fields.vue";
 import Navbar from "./components/inc/Navbar";
-
 export default {
   name: "App",
   components: {
-    Navbar,
-  },
+    Navbar
+  }
 };
 </script>
 

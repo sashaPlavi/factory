@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>fields</h1>
-
     <div class="fields">
       <div v-for="field in allFields" :key="field.id" class="field">
         <h1>{{ field.name }}</h1>
@@ -13,7 +12,6 @@
           <div style="color:red;" v-else>
             <p>&darr;</p>
           </div>
-
           <br />
         </div>
         <button @click="togleRandomize(field.id)">disable/enable</button>
@@ -24,8 +22,6 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-//console.log(mapGetter);
-
 export default {
   name: "Fields",
   methods: { ...mapActions(["randomize", "togleRandomize", "startRandomize"]) },
@@ -36,7 +32,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .fields {
   display: grid;
